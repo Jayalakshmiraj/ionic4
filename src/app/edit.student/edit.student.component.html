@@ -1,0 +1,75 @@
+<ion-header>
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-menu-button></ion-menu-button>
+      </ion-buttons>
+      <ion-title>
+        Edit Student
+      </ion-title>
+    </ion-toolbar>
+  </ion-header>
+  
+  <ion-content padding>
+    
+  
+  <ion-item>
+    <ion-label position="floating">Roll No</ion-label>
+    <ion-input   aria-placeholder="rollno" [(ngModel)]="student.rollno"></ion-input>
+    </ion-item>
+
+  <ion-item>
+    <ion-label position="floating">FirstName</ion-label>
+    <ion-input  aria-placeholder="FirstName" [(ngModel)]="student.firstName"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating">LastName</ion-label>
+    <ion-input  aria-placeholder="LastName" [(ngModel)]="student.lastName"></ion-input>
+  </ion-item>
+
+  <ion-item>
+      <ion-label>datePicker</ion-label>
+      <ion-datetime displayFormat="MM DD YY" placeholder="Select Date" [(ngModel)]="student.DOB" aria-placeholder="dataPicker"></ion-datetime>
+    </ion-item>
+    
+    
+    
+    
+      <ion-item>
+          <ion-label>Subject</ion-label>
+          <ion-select value="english" okText="Okay" cancelText="Dismiss" [(ngModel)]="student.subject">
+            <ion-select-option value="english">English</ion-select-option>
+            <ion-select-option value="tamil">Tamil</ion-select-option>
+            <ion-select-option value="maths">Maths</ion-select-option>
+            <ion-select-option value="chemistry">Chemistry</ion-select-option>
+          </ion-select>
+        </ion-item>
+      
+      
+      
+  <ion-item>
+    <ion-label position="floating">Teacher</ion-label>
+    <ion-input  aria-placeholder="teacher" [(ngModel)]="student.teacher"></ion-input>
+  </ion-item>
+
+  <ion-item>
+      <ion-label position="floating">Address</ion-label>
+      <ion-input  aria-placeholder="address" [(ngModel)]="student.address"></ion-input>
+    </ion-item>
+    
+  <ion-button  shape="round"color="success" expand="full" (click)='updateStudent(student)' > Update Student</ion-button>
+  
+  
+  
+  </ion-content>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+    

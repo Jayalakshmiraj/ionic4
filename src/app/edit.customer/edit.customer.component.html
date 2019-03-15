@@ -1,0 +1,45 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+      Update
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+  
+  <ion-content padding>
+    
+  
+  <ion-item>
+    <ion-label position="floating">Id</ion-label>
+    <ion-input   [(ngModel)]="customer.id" aria-placeholder=Id></ion-input>
+    
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating">Name</ion-label>
+    <ion-input  [(ngModel)]="customer.name" aria-placeholder="Name"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating">Email</ion-label>
+    <ion-input  [(ngModel)]="customer.email" aria-placeholder="Email"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating">Phone</ion-label>
+    <ion-input  [(ngModel)]="customer.phone" aria-placeholder="Phone"></ion-input>
+  </ion-item>
+  <ion-button  shape="round"color="success" expand="full" (click)="updateCustomer(customer)"> update</ion-button>
+
+  </ion-content>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+    
