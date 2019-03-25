@@ -1,34 +1,37 @@
 import { Injectable } from '@angular/core';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { catchError, map, tap } from 'rxjs/operators';
+import { Observable} from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CustomerService {
-  customers =[];
+  private customerUrl = 'http://localhost:3000/api/customers';
+  customers =[  {id:1,name:"jaya",email:"jaya@gmail.com",phone:"0123456789"},
+  {id:2,name:"mala",email:"mala@gmail.com",phone:"0123456789"},
+  {id:3,name:"kala",email:"kala@gmail.com",phone:"0123456789"}];
 
-  constructor() { 
-    var defaultCustomers = [
-      {id:1,name:"jaya",email:"jaya@gmail.com",phone:"0123456789"},
-      {id:2,name:"mala",email:"mala@gmail.com",phone:"0123456789"},
-      {id:3,name:"kala",email:"kala@gmail.com",phone:"0123456789"}
-  ];
-
-  if(localStorage.getItem('customers')==null)
-    {
-      this.customers = defaultCustomers;
-      localStorage.setItem('customers', JSON.stringify(this.customers));
+  constructor(private http: HttpClient) { 
+    var defaultCustomers = JSON.parse(localStorage.getItem('customer'));
+    if(defaultCustomers){
+      this.customers=defaultCustomers;
     }
     else{
-      this.customers = JSON.parse(localStorage.getItem('customers'));
+      localStorage.setItem('customer',JSON.stringify(this.customers));
     }
-}
+  
+  }
 
+
+  getRemoteCustomers(): Observable<[]>{
+  	return this.http.get<[]>(this.customerUrl); 		
+ }
 
 
   getCustomer(){
     return this.customers;
   }
-
   getCustomerById(id){
     for(var i=0;i<this.customers.length;i++){
       if(this.customers[i].id==id){
@@ -51,6 +54,7 @@ export class CustomerService {
         localStorage.setItem('customers',JSON.stringify(this.customers));
       }
     }
+    
   }
 
   updateCustomer(customer){

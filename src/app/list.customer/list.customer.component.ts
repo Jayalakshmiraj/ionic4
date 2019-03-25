@@ -11,7 +11,11 @@ export class ListCustomerComponent implements OnInit {
   
   constructor(private customerService: CustomerService,private router:Router) { }
   
-  ngOnInit() {}
+  ngOnInit() {
+    this.customerService.getRemoteCustomers().subscribe((result) => {this.customers = result;});
+  
+ 
+  }
 
   customers = this.customerService.getCustomer();
 
@@ -20,7 +24,7 @@ export class ListCustomerComponent implements OnInit {
   }
   deleteButtonAll() {
     this.customers = [];
-    
+    localStorage.setItem('customers',JSON.stringify(this.customers));
   }
 
   editButton(customer){

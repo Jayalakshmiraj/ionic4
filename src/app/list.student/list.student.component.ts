@@ -23,7 +23,7 @@ deleteAllStudent(){
   this.students=[];
 }
 
-editStudent(student){
-  this.router.navigate(['/edit-student/'+student.rollno]);
+selectStudent(s){
+  this.router.navigate(['/editStudent/']);
     }
 }

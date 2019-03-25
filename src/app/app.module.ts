@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouteReuseStrategy } from '@angular/router';
 import {FormsModule} from '@angular/forms';
+import { HttpClientModule }    from '@angular/common/http';
 
 import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
@@ -20,12 +21,13 @@ import { ListStudentComponent } from './list.student/list.student.component';
 import { AddStudentComponent } from './add.student/add.student.component';
 import { EditStudentComponent } from './edit.student/edit.student.component';
 
+
 import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
   declarations: [AppComponent,LoginComponent,DashboardComponent ,AboutusComponent,EditStudentComponent,CustomerComponent,AddCustomerComponent,ListCustomerComponent,EditCustomerComponent,StudentComponent,ListStudentComponent,AddStudentComponent,ListStudentComponent,AddStudentComponent],
   entryComponents: [],
-  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule,FormsModule],
+  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule,FormsModule,HttpClientModule],
   providers: [
     StatusBar,
     SplashScreen,
